@@ -38,3 +38,7 @@ script:
   # Usually, it's ok to finish the test scenario without reverting
   #  to the addon's original dependency state, skipping "cleanup".
   - ember try:one $EMBER_TRY_SCENARIO test --skip-cleanup
+
+notifications:
+  email: false
+  webhooks: https://hooks.pubu.im/services/kz9gln2v7my8s13
