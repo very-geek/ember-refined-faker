@@ -1,4 +1,4 @@
-# ember-refined-faker
+# Ember Refined Faker [![Build Status](https://travis-ci.org/very-geek/ember-refined-faker.svg?branch=master)](https://travis-ci.org/very-geek/ember-refined-faker)
 
 This README outlines the details of collaborating on this Ember addon.
 
