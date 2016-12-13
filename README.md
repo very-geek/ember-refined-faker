@@ -77,6 +77,8 @@ faker.random.arrayElement([1 2 3])
 
 > 如果安装了 [ember-composable-helpers](https://github.com/DockYard/ember-composable-helpers)，推荐使用该 addon 提供的 `array` helper。
 
+> faker.js 可用的方法参见：[faker.js demo](https://cdn.rawgit.com/Marak/faker.js/master/examples/browser/index.html)，另外可以通过 [faker.js API 文档](http://marak.github.io/faker.js/faker.html)查看所有的方法签名。
+
 ### 复合表达式调用
 
 faker.js 支持更高级的复合表达式（利用 mustache 模板语法进行变量内插），ember-refined-faker 也支持这种特性，只需要传入 `parse=true` 参数即可。例如：
@@ -113,7 +115,7 @@ faker.js 内置了 [lorempixel.com](http://lorempixel.com/) 的占位图片服�
 
 **输出 https://unsplash.it/400/300 （默认尺寸）**
 
-```handlerbars
+```handlebars
 {{fake "image.unsplash"}}
 ```
 
