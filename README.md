@@ -5,6 +5,8 @@
 [travis-ci]: https://img.shields.io/travis/very-geek/ember-refined-faker/master.svg?style=flat-square
 [fastboot]: https://img.shields.io/badge/%20fastboot--compatible%20-yes-brightgreen.svg?style=flat-square
 
+## 简介
+
 ## 安装
 
 在 Ember 应用程序或 addon 项目的根路径下执行：
@@ -109,31 +111,31 @@ Mary Lau
 
 faker.js 内置了 [lorempixel.com](http://lorempixel.com/) 的占位图片服务，但是访问的速度比较慢（🇨🇳），因此 ember-refined-faker 增加了一个新的占位图片服务 [unspalsh.it](https://unsplash.it)，以下是用法介绍：
 
-**输出 https://unsplash.it/400/300（默认尺寸）**
+**输出 https://unsplash.it/400/300 （默认尺寸）**
 
 ```handlerbars
 {{fake "image.unsplash"}}
 ```
 
-**输出 https://unsplash.it/800/450（width * height)**
+**输出 https://unsplash.it/800/450 （width * height)**
 
 ```handlebars
 {{fake "image.unsplash" 800 450}}
 ```
 
-**输出 https://unsplash.it/400/300?blur（虚化效果）**
+**输出 https://unsplash.it/400/300?blur （虚化效果）**
 
 ```handlebars
 {{fake "image.unsplash" blur=true}}
 ```
 
-**输出 https://unsplash.it/400/300?random（随机）**
+**输出 https://unsplash.it/400/300?random （随机）**
 
 ```handlebars
 {{fake "image.unsplash random=true"}}
 ```
 
-**输出 https://unsplash.it/400/300?gravity=center（裁剪？）**
+**输出 https://unsplash.it/400/300?gravity=center （裁剪？）**
 
 ```handlebars
 {{fake "image.unsplash" gravity=center}}
@@ -141,7 +143,7 @@ faker.js 内置了 [lorempixel.com](http://lorempixel.com/) 的占位图片服�
 
 gravity 参数按照图片服务的说明是对图片裁剪的方位选择，共有 `north, east, south, west, center` 五个值可用。遗憾的是我没看出来是怎么裁剪的……
 
-**输出 https://unsplash.it/g/400/300（灰阶）**
+**输出 https://unsplash.it/g/400/300 （灰阶）**
 
 ```handlebars
 {{fake "image.unsplash" grayscale=true}}
