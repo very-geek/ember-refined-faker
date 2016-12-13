@@ -1,27 +1,6 @@
-# Ember Refined Faker [![Build Status](https://travis-ci.org/very-geek/ember-refined-faker.svg?branch=master)](https://travis-ci.org/very-geek/ember-refined-faker)
+# Ember Refined Faker [![travis-ci][travis-ci]][travis-link] [![fastboot][fastboot]][self]
 
-This README outlines the details of collaborating on this Ember addon.
-
-## Installation
-
-* `git clone <repository-url>` this repository
-* `cd ember-refined-faker`
-* `npm install`
-* `bower install`
-
-## Running
-
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
-
-## Running Tests
-
-* `npm test` (Runs `ember try:each` to test your addon against multiple Ember versions)
-* `ember test`
-* `ember test --server`
-
-## Building
-
-* `ember build`
-
-For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
+[self]: https://github.com/very-geek/ember-refined-faker	"Ember Refined Faker"
+[travis-link]: https://travis-ci.org/very-geek/ember-refined-faker
+[travis-ci]: https://img.shields.io/travis/very-geek/ember-refined-faker/master.svg?style=flat-square
+[fastboot]: https://img.shields.io/badge/%20fastboot--compatible%20-yes-brightgreen.svg?style=flat-square

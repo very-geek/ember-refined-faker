@@ -8,9 +8,11 @@
 .editorconfig
 .ember-cli
 .gitignore
+.eslintrc
 .jshintrc
-.watchmanconfig
 .travis.yml
+.watchmanconfig
 bower.json
 ember-cli-build.js
 testem.js
+yarn.lock
