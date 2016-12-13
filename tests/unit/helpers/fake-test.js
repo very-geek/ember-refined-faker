@@ -38,3 +38,31 @@ test('change locale and reset back implicitly', function(assert) {
   const english = fake(['name.firstName'], {})
   assert.ok(/[a-z]+/i.test(english))
 })
+
+test('use unsplash.it for image placeholder service', function(assert) {
+  assert.equal(fake(['image.unsplash'], {}), 'https://unsplash.it/400/300')
+  assert.equal(fake(['image.unsplash', 300, 400], {}), 'https://unsplash.it/300/400')
+  assert.equal(
+    fake(['image.unsplash', 300, 400], {blur: true}),
+    'https://unsplash.it/300/400?blur'
+  )
+  assert.equal(
+    fake(['image.unsplash', 300, 400], {random: true}),
+    'https://unsplash.it/300/400?random'
+  )
+  assert.equal(
+    fake(['image.unsplash', 300, 400], {gravity: 'center'}),
+    'https://unsplash.it/300/400?gravity=center'
+  )
+  assert.equal(
+    fake(['image.unsplash', 300, 400], {grayscale: true}),
+    'https://unsplash.it/g/300/400'
+  )
+  assert.equal(
+    fake(
+      ['image.unsplash', 300, 400],
+      {blur: true, random: true, gravity: 'center', grayscale: true}
+    ),
+    'https://unsplash.it/g/300/400?blur&random&gravity=center'
+  )
+})
