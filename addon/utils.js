@@ -1,6 +1,6 @@
 export function extractApplicationConfig() {
-  return window.requirejs(
-    Object.keys(window.requirejs.entries)
+  return self.window && self.window.requirejs && self.window.requirejs(
+    Object.keys(self.window.requirejs.entries)
       .filter(entry => entry.match(/\/config\/environment/))[0]
   ).default.faker
 }

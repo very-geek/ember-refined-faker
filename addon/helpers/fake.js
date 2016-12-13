@@ -5,6 +5,9 @@ import faker from 'faker'
 faker.locale = defaultLocale
 
 export function fake([signature, ...args], {parse = false, locale}) {
+  // return early if request to Fastboot server
+  if (self.Fastboot && undefined === self.document) return ''
+
   if (!signature) throw new Error(faker.fake())
 
   if (localeHasBeenChanged || locale) changeLocale(faker, locale)
