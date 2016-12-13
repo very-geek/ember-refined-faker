@@ -43,26 +43,23 @@ test('use unsplash.it for image placeholder service', function(assert) {
   assert.equal(fake(['image.unsplash'], {}), 'https://unsplash.it/400/300')
   assert.equal(fake(['image.unsplash', 300, 400], {}), 'https://unsplash.it/300/400')
   assert.equal(
-    fake(['image.unsplash', 300, 400], {blur: true}),
-    'https://unsplash.it/300/400?blur'
+    fake(['image.unsplash'], {blur: true}),
+    'https://unsplash.it/400/300?blur'
   )
   assert.equal(
-    fake(['image.unsplash', 300, 400], {random: true}),
-    'https://unsplash.it/300/400?random'
+    fake(['image.unsplash'], {random: true}),
+    'https://unsplash.it/400/300?random'
   )
   assert.equal(
-    fake(['image.unsplash', 300, 400], {gravity: 'center'}),
-    'https://unsplash.it/300/400?gravity=center'
+    fake(['image.unsplash'], {gravity: 'center'}),
+    'https://unsplash.it/400/300?gravity=center'
   )
   assert.equal(
-    fake(['image.unsplash', 300, 400], {grayscale: true}),
-    'https://unsplash.it/g/300/400'
+    fake(['image.unsplash'], {grayscale: true}),
+    'https://unsplash.it/g/400/300'
   )
   assert.equal(
-    fake(
-      ['image.unsplash', 300, 400],
-      {blur: true, random: true, gravity: 'center', grayscale: true}
-    ),
-    'https://unsplash.it/g/300/400?blur&random&gravity=center'
+    fake(['image.unsplash'], {blur: true, random: true, gravity: 'center', grayscale: true}),
+    'https://unsplash.it/g/400/300?blur&random&gravity=center'
   )
 })
