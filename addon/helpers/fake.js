@@ -1,12 +1,20 @@
-import Ember from 'ember'
+import Helper from 'ember-helper'
+import { defaultLocale, changeLocale, localeHasBeenChanged } from '../utils'
 import faker from 'faker'
 
-export function fake(params/*, hash*/) {
-  if (params && params.length > 0) {
-    return faker.fake()
+faker.locale = defaultLocale
+
+export function fake([signature, ...args], {parse = false, locale}) {
+  if (!signature) throw new Error(faker.fake())
+
+  if (localeHasBeenChanged || locale) changeLocale(faker, locale)
+
+  if (parse) {
+    return faker.fake(signature.replace(/\[/g, '{{').replace(/\]/g, '}}'))
   } else {
-    throw new Error(faker.fake())
+    const [namespace, method] = signature.split('.')
+    return faker[namespace][method].apply(null, args)
   }
 }
 
-export default Ember.Helper.helper(fake)
+export default Helper.helper(fake)
