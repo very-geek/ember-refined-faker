@@ -154,5 +154,4 @@ gravity 参数按照图片服务的说明是对图片裁剪的方位选择，共
 ## TODO
 
 1. configurable options: 允许用户统一设定缺省选项，比如语言等
-2. simple `arr` helper: 生成简单的数组
-3. `{{fake "image.list" amount}}`: 允许返回指定长度的图片数组
+2. `{{fake "image.list" amount}}`: 允许返回指定长度的图片数组
