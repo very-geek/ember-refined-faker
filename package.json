@@ -1,9 +1,10 @@
 {
   "name": "ember-refined-faker",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "The default blueprint for ember-cli addons.",
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "faker.js"
   ],
   "license": "MIT",
   "author": "nightire <nightire@very-geek.com>",
@@ -46,6 +47,7 @@
     "node": ">= 0.12.0"
   },
   "ember-addon": {
-    "configPath": "tests/dummy/config"
+    "configPath": "tests/dummy/config",
+    "demoURL": "http://www.very-geek.com/ember-refined-faker/"
   }
 }
