@@ -1,3 +1,7 @@
+const HOST_MAP = {
+  unsplash: 'unsplash.it'
+}
+
 export function buildQueryParams(blur, random, gravity) {
   let params = []
 
@@ -19,7 +23,8 @@ export default function generateImageURL([
   gravity = false,
   grayscale = false
 }) {
-  const base = `//unsplash.it/${grayscale ? 'g/' : ''}${w}/${h}`
+  const host = HOST_MAP[method]
+  const base = `//${host}/${grayscale ? 'g/' : ''}${w}/${h}`
   const params = buildQueryParams(blur, random, gravity)
   return `https:${base}${params ? '?' + params : ''}`
 }

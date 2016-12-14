@@ -8,7 +8,7 @@
   "license": "MIT",
   "author": "nightire <nightire@very-geek.com>",
   "directories": {
-    "doc": "doc",
+    "doc": "docs",
     "test": "tests"
   },
   "repository": "https://github.com/very-geek/ember-refined-faker",

@@ -1,3 +1,5 @@
+export const defaultLocale = extractApplicationConfig().defaultLocale
+
 export function extractApplicationConfig() {
   return self.window && self.window.requirejs && self.window.requirejs(
     Object.keys(self.window.requirejs.entries)
@@ -5,7 +7,7 @@ export function extractApplicationConfig() {
   ).default.faker
 }
 
-export const defaultLocale = extractApplicationConfig().defaultLocale
+export let localeHasBeenChanged = false
 
 export function changeLocale(faker, locale) {
   if (!localeHasBeenChanged) {
@@ -21,5 +23,3 @@ export function changeLocale(faker, locale) {
     localeHasBeenChanged = false
   }
 }
-
-export let localeHasBeenChanged = false

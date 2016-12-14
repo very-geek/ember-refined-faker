@@ -134,7 +134,7 @@ faker.js 内置了 [lorempixel.com](http://lorempixel.com/) 的占位图片服�
 **输出 https://unsplash.it/400/300?random （随机）**
 
 ```handlebars
-{{fake "image.unsplash random=true"}}
+{{fake "image.unsplash" random=true}}
 ```
 
 **输出 https://unsplash.it/400/300?gravity=center （裁剪？）**
