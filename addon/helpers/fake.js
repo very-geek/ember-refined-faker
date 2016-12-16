@@ -24,7 +24,14 @@ export function fake([signature, ...args], {parse = false, locale, ...opts}) {
       return generateImageURL([namespace, method, ...args], opts)
     }
 
-    return faker[namespace][method].apply(null, args)
+    try {
+      return faker[namespace][method].apply(null, args)
+    } catch (error) {
+      if ("Cannot read property 'apply' of undefined" === error.message) {
+        throw new ReferenceError(`${namespace}.${method} 不是有效的 faker 方法名称`)
+      }
+      throw new Error(error)
+    }
   }
 }
 
