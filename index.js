@@ -61,7 +61,7 @@ module.exports = {
     return this._defaults.enabled ? tree : this._excludes(tree)
   },
 
-  _excludes(tree, pattern = /helpers\/arr|fake/i) {
-    return new Funnel(tree, { exclude: [pattern] })
+  _excludes(tree) {
+    return new Funnel(tree, { exclude: [/helpers\/arr|fake/i] })
   },
 }
