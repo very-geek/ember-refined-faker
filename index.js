@@ -4,6 +4,8 @@
  * @module ember-refined-faker
  */
 
+const Funnel = require('broccoli-funnel')
+
 /**
  * @class config
  */
@@ -45,7 +47,21 @@ module.exports = {
     this._super.included.apply(this, arguments)
   },
 
-  config(env, config) {
+  config() {
     return this._defaults ? { faker: this._defaults } : {}
-  }
+  },
+
+  treeForApp() {
+    const tree = this._super.treeForApp.apply(this, arguments)
+    return this._defaults.enabled ? tree : this._excludes(tree)
+  },
+
+  treeForAddon() {
+    const tree = this._super.treeForAddon.apply(this, arguments)
+    return this._defaults.enabled ? tree : this._excludes(tree)
+  },
+
+  _excludes(tree, pattern = /helpers\/arr|fake/i) {
+    return new Funnel(tree, { exclude: [pattern] })
+  },
 }

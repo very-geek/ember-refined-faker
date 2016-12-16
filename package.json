@@ -1,7 +1,7 @@
 {
   "name": "ember-refined-faker",
-  "version": "0.1.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "version": "0.2.0",
+  "description": "An Ember addon to integrate faker.js with both its APIs and Ember specific template helpers",
   "keywords": [
     "ember-addon",
     "faker.js"

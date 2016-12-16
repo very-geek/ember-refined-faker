@@ -5,8 +5,6 @@
 [travis-ci]: https://img.shields.io/travis/very-geek/ember-refined-faker/master.svg?style=flat-square
 [fastboot]: https://img.shields.io/badge/%20fastboot--compatible%20-yes-brightgreen.svg?style=flat-square
 
-## 简介
-
 ## 安装
 
 在 Ember 应用程序或 addon 项目的根路径下执行：
@@ -164,6 +162,42 @@ gravity 参数按照图片服务的说明是对图片裁剪的方位选择，共
 ```handlebars
 {{fake "image.unsplash" grayscale=true}}
 ```
+
+### 禁用
+
+技术上来说，ember-refined-faker 应该仅用于 development 阶段，特别是在早中期尚未确定具体内容之前当作临时占位内容生成器来用。因此，最好的禁用方法莫过于从你的应用程序里彻底删除 ember-refined-faker：
+
+```shell
+# 如果你用 npm：
+$ npm uninstall ember-refined-faker --save-dev
+
+# 如果你用 yarn：
+$ yarn remove ember-refined-faker --dev
+```
+
+请确保在你的模板中没有残留的 `{{fake}}` 或 `{{arr}}` helper，否则你会看到如下的异常：
+
+```
+Uncaught Error: Compile Error: fake is not a helper
+```
+
+可是有的时候你只是想暂时禁用一下并且以后还会继续使用的话，有两种方式可以帮助你：
+
+1. 默认情况下，ember-refined-faker 只在 development 和 test 环境下启用，一旦你运行或是构建于 production 环境下，ember-refined-faker 会自动将自己从构建结果中剔除掉；
+
+2. 你可以在 `ember-cli-build.js` 文件中手动禁用 ember-refined-faker，这样任何环境都会保持一致：
+
+   ```javascript
+   module.exports = function(defaults) {
+     var app = new EmberApp(defaults, {
+       faker: {
+         enabled: false
+       }
+     });
+
+     return app.toTree();
+   }
+   ```
 
 ## TODO
 
