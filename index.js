@@ -4,7 +4,7 @@
  * @module ember-refined-faker
  */
 
-const Funnel = require.resolve('broccoli-funnel')
+const Funnel = require('broccoli-funnel')
 
 /**
  * @class config

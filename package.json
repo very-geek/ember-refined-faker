@@ -23,6 +23,9 @@
     "ember-cli-node-assets": "0.1.6",
     "faker": "^3.1.0"
   },
+  "dependencies": {
+    "broccoli-funnel": "^1.1.0"
+  },
   "devDependencies": {
     "broccoli-asset-rev": "^2.5.0",
     "ember-ajax": "^2.5.3",
@@ -33,7 +36,7 @@
     "ember-cli-htmlbars": "^1.1.1",
     "ember-cli-htmlbars-inline-precompile": "^0.3.6",
     "ember-cli-inject-live-reload": "^1.4.1",
-    "ember-cli-qunit": "^3.0.2",
+    "ember-cli-qunit": "^3.0.4",
     "ember-cli-sri": "^2.1.1",
     "ember-cli-test-loader": "^1.1.0",
     "ember-cli-uglify": "^1.2.0",
