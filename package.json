@@ -1,6 +1,6 @@
 {
   "name": "ember-refined-faker",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "An Ember addon to integrate faker.js with both its APIs and Ember specific template helpers",
   "keywords": [
     "ember-addon"
