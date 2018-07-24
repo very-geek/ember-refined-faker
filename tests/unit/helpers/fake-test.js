@@ -14,7 +14,7 @@ test('delegate faker method without arguments', function(assert) {
 
 test('delegate faker method with arguments', function(assert) {
   const expected = fake(['finance.amount', 0, 100, 2, '$'], {})
-  assert.ok(/^\$\d{1,2}\.00$/i.test(expected))
+  assert.ok(/^\$\d{1,2}\.\d{2}$/i.test(expected))
 })
 
 test('delegate faker method with hash arguments', function(assert) {

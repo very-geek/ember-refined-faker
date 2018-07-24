@@ -2,20 +2,18 @@
 /* global require: false, module: false, process: false */
 'use strict'
 
-const Funnel = require('broccoli-funnel')
+const Funnel = require('broccoli-funnel');
 
 module.exports = {
   name: 'ember-refined-faker',
 
+  // isDevelopingAddon() {
+  //   return process.env.EMBER_ENV !== 'production'
+  // },
+
   options: {
-    nodeAssets: {
-      faker() {
-        return {
-          srcDir: 'build/build',
-          vendor: ['faker.js'],
-          enabled: this.options.faker.enabled
-        }
-      }
+    babel: {
+      plugins: ['minify-dead-code-elimination', 'transform-object-rest-spread'],
     },
 
     faker: {
@@ -23,30 +21,25 @@ module.exports = {
     },
   },
 
-  isDevelopingAddon() {
-    return process.env.EMBER_ENV !== 'production'
-  },
-
-  included(parent) {
-    if (parent.options && parent.options.faker) {
-      this.options.faker = Object.assign({}, this.options.faker, parent.options.faker)
+  included(app) {
+    if (app.options && app.options.faker) {
+      this.options.faker = Object.assign({}, this.options.faker, app.options.faker);
     }
 
-    this._super.included.apply(this, arguments)
-    this.import('vendor/faker/faker.js', {using: [{transformation: 'amd', as: 'faker'}]})
+    this._super.included.apply(this, arguments);
   },
 
   treeForApp() {
-    let tree = this._super.treeForApp.apply(this, arguments)
-    return this.options.faker.enabled ? tree : this._excludes(tree)
+    const tree = this._super.treeForApp.apply(this, arguments);
+    return this.options.faker.enabled ? tree : this._excludes(tree);
   },
 
   treeForAddon() {
-    let tree = this._super.treeForAddon.apply(this, arguments)
-    return this.options.faker.enabled ? tree : this._excludes(tree)
+    const tree = this._super.treeForAddon.apply(this, arguments);
+    return this.options.faker.enabled ? tree : this._excludes(tree);
   },
 
   _excludes(tree) {
-    return new Funnel(tree, { exclude: [/helpers\/arr|fake/i] })
+    return new Funnel(tree, { exclude: [/helpers\/arr|fake/i] });
   },
 }

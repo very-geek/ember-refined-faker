@@ -13,7 +13,7 @@ export function buildQueryParams(blur, random, gravity) {
 }
 
 export default function generateImageURL([
-  namespace,
+  namespace, // eslint-disable-line
   method,
   w = 400,
   h = 300,

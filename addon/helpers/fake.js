@@ -1,7 +1,8 @@
-import { helper } from 'ember-helper'
+import { helper } from '@ember/component/helper'
+import faker from 'faker'
+
 import { defaultLocale, changeLocale, localeHasBeenChanged } from '../utils/locale'
 import generateImageURL from '../utils/image'
-import faker from 'faker'
 
 faker.locale = defaultLocale
 
