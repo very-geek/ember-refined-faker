@@ -1,16 +1,20 @@
 import { helper } from '@ember/component/helper'
 import faker from 'faker'
 
-import { defaultLocale, changeLocale, localeHasBeenChanged } from '../utils/locale'
+import {
+  defaultLocale,
+  changeLocale,
+  localeHasBeenChanged
+} from '../utils/locale'
 import generateImageURL from '../utils/image'
 
 faker.locale = defaultLocale
 
-export function fake([signature, ...args], {parse = false, locale, ...opts}) {
+export function fake([signature, ...args], { parse = false, locale, ...opts }) {
   // running in node environment w/ fastboot server
   if ('undefined' !== typeof FastBoot // eslint-disable-line
-      // and not to trying to generate an image URL
-      && (signature && !/^image/i.test(signature))) return ''
+    // and not to trying to generate an image URL
+    && (signature && !/^image/i.test(signature))) return ''
 
   if (!signature) throw new Error(faker.fake())
 

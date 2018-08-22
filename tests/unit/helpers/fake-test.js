@@ -18,7 +18,7 @@ test('delegate faker method with arguments', function(assert) {
 })
 
 test('delegate faker method with hash arguments', function(assert) {
-  const expected = fake(['random.objectElement', {foo: 1, bar: 2, baz: 3}], {})
+  const expected = fake(['random.objectElement', { foo: 1, bar: 2, baz: 3 }], {})
   assert.ok(/^1|2|3$/i.test(expected))
 })
 
@@ -28,12 +28,12 @@ test('delegate faker method with array arguments', function(assert) {
 })
 
 test('delegate parsing signature as mustache template', function(assert) {
-  const expected = fake(['Hi, I\'m [random.number] years old.'], {parse: true})
+  const expected = fake(['Hi, I\'m [random.number] years old.'], { parse: true })
   assert.ok(/\d+/i.test(expected))
 })
 
 test('change locale and reset back implicitly', function(assert) {
-  const chinese = fake(['name.firstName'], {locale: 'zh_CN'})
+  const chinese = fake(['name.firstName'], { locale: 'zh_CN' })
   assert.ok(/[\u4e00-\u9fa5]/.test(chinese))
   const english = fake(['name.firstName'], {})
   assert.ok(/[a-z]+/i.test(english))
@@ -43,23 +43,23 @@ test('use unsplash.it for image placeholder service', function(assert) {
   assert.equal(fake(['image.unsplash'], {}), 'https://unsplash.it/400/300')
   assert.equal(fake(['image.unsplash', 300, 400], {}), 'https://unsplash.it/300/400')
   assert.equal(
-    fake(['image.unsplash'], {blur: true}),
+    fake(['image.unsplash'], { blur: true }),
     'https://unsplash.it/400/300?blur'
   )
   assert.equal(
-    fake(['image.unsplash'], {random: true}),
+    fake(['image.unsplash'], { random: true }),
     'https://unsplash.it/400/300?random'
   )
   assert.equal(
-    fake(['image.unsplash'], {gravity: 'center'}),
+    fake(['image.unsplash'], { gravity: 'center' }),
     'https://unsplash.it/400/300?gravity=center'
   )
   assert.equal(
-    fake(['image.unsplash'], {grayscale: true}),
+    fake(['image.unsplash'], { grayscale: true }),
     'https://unsplash.it/g/400/300'
   )
   assert.equal(
-    fake(['image.unsplash'], {blur: true, random: true, gravity: 'center', grayscale: true}),
+    fake(['image.unsplash'], { blur: true, random: true, gravity: 'center', grayscale: true }),
     'https://unsplash.it/g/400/300?blur&random&gravity=center'
   )
 })
