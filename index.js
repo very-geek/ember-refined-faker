@@ -1,4 +1,3 @@
-/* eslint-env node */
 /* global require: false, module: false, process: false */
 'use strict'
 
