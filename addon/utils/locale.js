@@ -1,11 +1,11 @@
-export const defaultLocale = extractApplicationConfig().defaultLocale
-
 export function extractApplicationConfig() {
   return self.window && self.window.requirejs && self.window.requirejs(
     Object.keys(self.window.requirejs.entries)
       .filter(entry => entry.match(/\/config\/environment/))[0]
   ).default.faker
 }
+
+export const defaultLocale = extractApplicationConfig().defaultLocale
 
 export let localeHasBeenChanged = false
 

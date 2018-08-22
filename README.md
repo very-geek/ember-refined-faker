@@ -9,7 +9,7 @@
 
 在 Ember 应用程序或 addon 项目的根路径下执行：
 
-```shell
+``` shell
 $ ember install ember-refined-faker
 ```
 
@@ -17,7 +17,7 @@ $ ember install ember-refined-faker
 
 ### 简单调用
 
-```handlebars
+``` htmlbars
 {{fake "namespace.method" args}}
 ```
 
@@ -25,13 +25,13 @@ $ ember install ember-refined-faker
 
 代理 faker.js 的简单调用，适用于大多数情况。例如：
 
-```handlebars
+``` htmlbars
 {{fake "name.findName"}}
 ```
 
 相当于：
 
-```javascript
+``` javascript
 faker.name.findName()
 ```
 
@@ -39,37 +39,37 @@ faker.name.findName()
 
 表示若干可选参数，适用于允许接收参数的 faker.js 调用。例如：
 
-```handlebars
+``` htmlbars
 {{fake "finance.amount" 0 100 2 "$"}}
 ```
 
 相当于：
 
-```javascript
+``` javascript
 faker.finance.amount(0, 100, 2, '$')
 ```
 
 💡 如果传入的参数需要是 `Object` 类型，可以使用 Ember 内置的 `hash` helper 来创建。例如：
 
-```handlebars
+``` htmlbars
 {{fake "random.objectElement" (hash foo=1 bar=2 baz=3)}}
 ```
 
 相当于：
 
-```javascript
-faker.random.objectElement({foo: 1, bar: 2, baz: 3})
+``` javascript
+faker.random.objectElement({ foo: 1, bar: 2, baz: 3 })
 ```
 
 💡 如果传入的参数需要是 `Array` 类型，可以使用 ember-refined-faker 提供的 `arr` helper 来创建。例如：
 
-```handlebars
+``` htmlbars
 {{fake "random.arrayElement" (arr 1 2 3)}}
 ```
 
 相当于：
 
-```javascript
+``` javascript
 faker.random.arrayElement([1 2 3])
 ```
 
@@ -81,7 +81,7 @@ faker.random.arrayElement([1 2 3])
 
 faker.js 支持更高级的复合表达式（利用 mustache 模板语法进行变量内插），ember-refined-faker 也支持这种特性，只需要传入 `parse=true` 参数即可。例如：
 
-```handlebars
+``` htmlbars
 {{fake "Hi, I'm [random.number] years old." parse=true}}
 ```
 
@@ -91,7 +91,7 @@ faker.js 支持更高级的复合表达式（利用 mustache 模板语法进行�
 
 faker.js 内置简单的多语言支持，默认情况下设置的语言是 `en_US`，可以通过传入 `locale="xxx"` 来临时改变输出的语言。例如：
 
-```handlebars
+``` htmlbars
 {{fake "name.findName"}}
 {{fake "name.findName" locale="zh_CN"}}
 {{fake "name.findName"}}
@@ -109,7 +109,7 @@ Mary Lau
 
 用户可以指定应用程序启动时默认的语言，只需要在 `ember-cli-build.js` 中添加配置项：
 
-```javascript
+``` javascript
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
     faker: {
@@ -127,31 +127,31 @@ faker.js 内置了 [lorempixel.com](http://lorempixel.com/) 的占位图片服�
 
 **输出 https://unsplash.it/400/300 （默认尺寸）**
 
-```handlebars
+``` htmlbars
 {{fake "image.unsplash"}}
 ```
 
 **输出 https://unsplash.it/800/450 （width * height)**
 
-```handlebars
+``` htmlbars
 {{fake "image.unsplash" 800 450}}
 ```
 
 **输出 https://unsplash.it/400/300?blur （虚化效果）**
 
-```handlebars
+``` htmlbars
 {{fake "image.unsplash" blur=true}}
 ```
 
 **输出 https://unsplash.it/400/300?random （随机）**
 
-```handlebars
+``` htmlbars
 {{fake "image.unsplash" random=true}}
 ```
 
 **输出 https://unsplash.it/400/300?gravity=center （裁剪？）**
 
-```handlebars
+``` htmlbars
 {{fake "image.unsplash" gravity=center}}
 ```
 
@@ -159,7 +159,7 @@ gravity 参数按照图片服务的说明是对图片裁剪的方位选择，共
 
 **输出 https://unsplash.it/g/400/300 （灰阶）**
 
-```handlebars
+``` htmlbars
 {{fake "image.unsplash" grayscale=true}}
 ```
 
@@ -167,7 +167,7 @@ gravity 参数按照图片服务的说明是对图片裁剪的方位选择，共
 
 技术上来说，ember-refined-faker 应该仅用于 development 阶段，特别是在早中期尚未确定具体内容之前当作临时占位内容生成器来用。因此，最好的禁用方法莫过于从你的应用程序里彻底删除 ember-refined-faker：
 
-```shell
+``` shell
 # 如果你用 npm：
 $ npm uninstall ember-refined-faker --save-dev
 
@@ -177,7 +177,7 @@ $ yarn remove ember-refined-faker --dev
 
 请确保在你的模板中没有残留的 `{{fake}}` 或 `{{arr}}` helper，否则你会看到如下的异常：
 
-```
+``` javascript
 Uncaught Error: Compile Error: fake is not a helper
 ```
 
@@ -187,7 +187,7 @@ Uncaught Error: Compile Error: fake is not a helper
 
 2. 你可以在 `ember-cli-build.js` 文件中手动禁用 ember-refined-faker，这样任何环境都会保持一致：
 
-   ```javascript
+   ``` javascript
    module.exports = function(defaults) {
      var app = new EmberApp(defaults, {
        faker: {
